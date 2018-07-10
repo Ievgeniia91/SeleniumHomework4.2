@@ -1,29 +1,32 @@
-Feature: Form automation
-  As a user I want to fill up the form and submit it.
+Feature: As a user I want to login to login to the application, choose the product, complete the payment and shipping
+  process and logout from the application
 
-  Scenario Outline: Form filling and submission
+
+  Scenario Outline: Login, shopping and logout from the app
     Given user navigate to the app url
-    When user fills first name with value "<name1>"
-    And user fills last name text with value "<name2>"
-    And user chooses gender
-    And user fills date of birth
-    And user fills address "<address>"
-    And user fills email "<email>"
+    When user fills email "<email>"
     And user fills password "<password>"
-    And user fills company name "<compName>"
-    And user chooses role
-    And user chooses job expectations
-    And user chooses ways of development
-    And user fills comment "<comment>"
-    And user clicks submit button
-    Then form is submitted
-   
+    And user clicks sign in
+    And user clicks women
+    And user chooses product
+    And user clicks on 'Add to cart' button
+    And user proceeds to checkout
+    And user proceeds to next checkout
+    And user proceeds to next step of checkout
+    And user agrees with terms
+    And user proceeds to final checkout
+    And user chooses pay by check
+    And user confirms order
+    And user gets order confirmation
+    And user goes back to orders
+    And user checks total price
+    And user logs out from the app
+    Then user is logged out
     Examples:
-      | name1 | name2   | address  | email            | password | compName | comment   |
-      | David | Wilson  | Address1 | email1@gmail.com | 12345    | Brut     | Nice      |
-      | Jane  | Donovan | Address2 | email2@gmail.com | 54321    | Dice     | Great     |
-      | Olga  | Koshan  | Address3 | email3@gmail.com | 67890    | Forte    | Excellent |
-
+      | email                   | password |
+      | activeuser200@gmail.com | 12345    |
+      | activeuser300@gmail.com | 67890    |
+      | activeuser400@gmail.com | 98765    |
 
 
 
